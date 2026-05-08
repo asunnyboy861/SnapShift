@@ -8,6 +8,12 @@ https://github.com/asunnyboy861/SnapShift
 - ✅ App Launch: Successful
 - ✅ GitHub Push: Complete
 
+## Policy Pages (GitHub Pages)
+- ✅ Support: https://asunnyboy861.github.io/SnapShift/support.html
+- ✅ Privacy: https://asunnyboy861.github.io/SnapShift/privacy.html
+- ✅ Terms: https://asunnyboy861.github.io/SnapShift/terms.html
+- ✅ Landing: https://asunnyboy861.github.io/SnapShift/
+
 ## Project Structure
 ```
 SnapShift/
