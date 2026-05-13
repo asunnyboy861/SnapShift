@@ -21,8 +21,8 @@ Compare your photos the way you want. Use side-by-side view, a swipeable slider,
 Timelapse Videos
 Turn your progress photos into a smooth timelapse video. Watch weeks or months of transformation in seconds and share it with friends or on social media.
 
-HealthKit Integration
-Sync your weight and body fat percentage from Apple Health. See your health data alongside your photos for the complete picture.
+Body Metrics Tracking
+Log your weight and body fat percentage alongside each photo. Keep all your progress data in one place for the complete picture.
 
 Voice Activated Shutter
 Hands full? Just say the word. Voice-activated shutter lets you take photos without touching your phone.
@@ -49,7 +49,6 @@ Pro includes:
 - Unlimited photos
 - All three comparison modes (slider, side-by-side, overlay)
 - Timelapse video generation
-- HealthKit integration
 - iCloud sync
 - Privacy blur export
 - Batch photo import
@@ -59,4 +58,4 @@ IN-APP PURCHASE INFORMATION
 SnapShift Pro is a one-time purchase of $9.99. Payment will be charged to your Apple ID account at confirmation of purchase. This is not a subscription. There are no recurring charges. You can restore your purchase on any device signed into the same Apple ID. Family Sharing is supported.
 
 ## Keywords
-progress photos,body transform,before after,timelapse,weight loss,ghost overlay,HealthKit,privacy
+progress photos,body transform,before after,timelapse,weight loss,ghost overlay,body metrics,privacy
