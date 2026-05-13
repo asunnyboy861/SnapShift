@@ -19,8 +19,6 @@ struct ProUpgradeSheet: View {
                 featureRow("Unlimited photos")
                 featureRow("All comparison modes")
                 featureRow("Timelapse video")
-                featureRow("HealthKit integration")
-                featureRow("iCloud sync")
                 featureRow("Privacy blur export")
                 featureRow("Batch photo import")
             }

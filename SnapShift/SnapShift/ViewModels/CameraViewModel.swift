@@ -5,7 +5,9 @@ import Combine
 
 @MainActor
 class CameraViewModel: ObservableObject {
-    @Published var selectedAngle: PhotoAngle = .front
+    @Published var selectedAngle: PhotoAngle = .front {
+        didSet { reloadGhostImage() }
+    }
     @Published var ghostImage: UIImage?
     @Published var ghostOpacity: Double = 0.3
     @Published var showGrid = false
@@ -19,6 +21,7 @@ class CameraViewModel: ObservableObject {
     let voiceCaptureManager = VoiceCaptureManager()
 
     private var currentAlbum: ProgressAlbum?
+    private var timerTask: Task<Void, Never>?
     private let context = CoreDataStack.shared.viewContext
 
     init() {
@@ -57,20 +60,27 @@ class CameraViewModel: ObservableObject {
     }
 
     func startTimer(seconds: Int = 5) {
+        timerTask?.cancel()
         countdown = seconds
         isTimerActive = true
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
-            Task { @MainActor [weak self] in
-                guard let self = self else { timer.invalidate(); return }
-                self.countdown! -= 1
-                if self.countdown! <= 0 {
-                    timer.invalidate()
-                    self.countdown = nil
-                    self.isTimerActive = false
-                    self.capturePhoto()
-                }
+        timerTask = Task { @MainActor in
+            for remaining in (1...seconds).reversed() {
+                guard !Task.isCancelled else { return }
+                countdown = remaining
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
             }
+            guard !Task.isCancelled else { return }
+            countdown = nil
+            isTimerActive = false
+            capturePhoto()
         }
+    }
+
+    func cancelTimer() {
+        timerTask?.cancel()
+        timerTask = nil
+        countdown = nil
+        isTimerActive = false
     }
 
     func toggleVoiceCapture() {
@@ -82,9 +92,12 @@ class CameraViewModel: ObservableObject {
     }
 
     private func loadGhostImage(from album: ProgressAlbum) {
+        reloadGhostImage()
+    }
+
+    private func reloadGhostImage() {
+        guard let album = currentAlbum else { return }
         let anglePhotos = album.photoArray.filter { $0.angle == selectedAngle.rawValue }
-        if let lastPhoto = anglePhotos.last {
-            ghostImage = PhotoStorageManager.shared.loadPhoto(filename: lastPhoto.imagePath)
-        }
+        ghostImage = anglePhotos.last.flatMap { PhotoStorageManager.shared.loadPhoto(filename: $0.imagePath) }
     }
 }

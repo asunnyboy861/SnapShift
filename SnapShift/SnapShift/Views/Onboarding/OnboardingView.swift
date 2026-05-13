@@ -22,8 +22,8 @@ struct OnboardingView: View {
 
             onboardingPage(
                 icon: "heart.text.square",
-                title: "Health Data Integration",
-                subtitle: "Sync weight and body fat from HealthKit for complete tracking"
+                title: "Track Body Metrics",
+                subtitle: "Log your weight and body fat alongside each photo for complete progress tracking"
             )
             .tag(2)
 

@@ -3,17 +3,23 @@ import SwiftUI
 struct SettingsView: View {
     @StateObject private var viewModel = SettingsViewModel()
     @State private var showingProSheet = false
+    @State private var showingContactSupport = false
 
     var body: some View {
         NavigationStack {
             Form {
                 proSection
                 privacySection
-                healthSection
                 aboutSection
                 supportSection
             }
             .navigationTitle("Settings")
+            .sheet(isPresented: $showingProSheet) {
+                ProUpgradeSheet()
+            }
+            .sheet(isPresented: $showingContactSupport) {
+                ContactSupportView()
+            }
         }
     }
 
@@ -65,21 +71,6 @@ struct SettingsView: View {
         }
     }
 
-    private var healthSection: some View {
-        Section {
-            Toggle(isOn: $viewModel.isHealthKitEnabled) {
-                Label("HealthKit Sync", systemImage: "heart.text.square")
-            }
-            .onChange(of: viewModel.isHealthKitEnabled) { _, newValue in
-                if newValue {
-                    Task { await viewModel.toggleHealthKit() }
-                }
-            }
-        } header: {
-            Text("Health")
-        }
-    }
-
     private var aboutSection: some View {
         Section {
             Link(destination: URL(string: viewModel.privacyURL)!) {
@@ -95,7 +86,9 @@ struct SettingsView: View {
 
     private var supportSection: some View {
         Section {
-            Link(destination: URL(string: viewModel.supportURL)!) {
+            Button {
+                showingContactSupport = true
+            } label: {
                 Label("Contact Support", systemImage: "envelope")
             }
             Button {

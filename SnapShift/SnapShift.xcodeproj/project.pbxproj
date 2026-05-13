@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6A3968532FB0227200D7B536 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3968522FB0227100D7B536 /* StoreKit.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6A4DCEA42FAE39020039CCA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A3968522FB0227100D7B536 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		6A4DCE962FAE39000039CCA2 /* SnapShift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapShift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A4DCEA32FAE39020039CCA2 /* SnapShiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapShiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A4DCEAD2FAE39020039CCA2 /* SnapShiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapShiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A3968532FB0227200D7B536 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +78,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A3968512FB0227100D7B536 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A3968522FB0227100D7B536 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6A4DCE8D2FAE39000039CCA2 = {
 			isa = PBXGroup;
 			children = (
 				6A4DCE982FAE39000039CCA2 /* SnapShift */,
 				6A4DCEA62FAE39020039CCA2 /* SnapShiftTests */,
 				6A4DCEB02FAE39020039CCA2 /* SnapShiftUITests */,
+				6A3968512FB0227100D7B536 /* Frameworks */,
 				6A4DCE972FAE39000039CCA2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -395,17 +410,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SnapShift/SnapShift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JP4TN5PTS3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "SnapShift needs camera access to take progress photos";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "SnapShift uses Face ID to protect your private progress photos";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "SnapShift needs microphone access for voice-activated photo capture";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "SnapShift needs speech recognition for voice-activated photo capture";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "SnapShift reads your weight and body fat data from HealthKit to display alongside your progress photos";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "SnapShift does not write health data";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "SnapShift needs photo library access to import existing progress photos";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "SnapShift needs speech recognition for voice-activated photo capture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -434,17 +449,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SnapShift/SnapShift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JP4TN5PTS3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "SnapShift needs camera access to take progress photos";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "SnapShift uses Face ID to protect your private progress photos";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "SnapShift needs microphone access for voice-activated photo capture";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "SnapShift needs speech recognition for voice-activated photo capture";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "SnapShift reads your weight and body fat data from HealthKit to display alongside your progress photos";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "SnapShift does not write health data";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "SnapShift needs photo library access to import existing progress photos";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "SnapShift needs speech recognition for voice-activated photo capture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
